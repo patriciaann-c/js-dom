@@ -1,11 +1,17 @@
 // Esercizio 4
-//dato un oggetto utente (nome, ruolo, img) e una struttura HTML vuota,
-// inserisci i dati dell'oggetto nei rispettivi elementi della pagina
-const card = document.querySelector("#myCard");
+// con due input password, mostra un messaggio di errore rosso
+// se i valori non coincidono mentre l'utente digita nel secondo campo
 
-// const imgCard = card.querySelector("img");
-// imgCard.src = person.picture;
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const error = document.getElementById("error");
 
-card.querySelector("img").src = person.picture;
-card.querySelector(".card-title").textContent = person.nome;
-card.querySelector(".card-title").textContent = person.role;
+confirmPassword.addEventListener("input", () => {
+    if (confirmPassword.value === "") {
+        error.style.display = "none";
+    } else if (password.value !== confirmPassword.value) {
+        error.style.display = "block";
+    } else {
+        error.style.display = "none";
+    }
+});
